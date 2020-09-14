@@ -7,3 +7,17 @@ export const LOGIN = gql`
     }
   }
 `;
+
+
+export const ALL_USERS = gql`
+  query allUsers($first:Int!, $searchText:String!){
+    users(first:$first, firstName_Icontains:$searchText){
+      edges{
+        node{
+          id,
+          fullName
+        }
+      }
+    }
+  }
+`;

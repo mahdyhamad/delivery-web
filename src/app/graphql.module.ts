@@ -17,7 +17,7 @@ export function createApollo(httpLink: HttpLink, cookieService: CookieService): 
   console.log(token)
   const auth = setContext((operation, context) => ({
     headers: {
-      Authorization: `JWT ${token}`
+      Authorization: `${token}`
     },
   }));
 

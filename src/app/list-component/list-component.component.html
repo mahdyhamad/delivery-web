@@ -1,0 +1,13 @@
+<div class="form-group">
+  <input type="email"
+         [value]="searchText"
+         class="form-control"
+         placeholder="Search...">
+</div>
+<mat-selection-list #users [multiple]="false">
+  <mat-list-option *ngFor="let item of dataList; index as i" [value]="item.node" class="shadow-sm m-2">
+    {{item.node.fullName}}
+  </mat-list-option>
+</mat-selection-list>
+<br/>
+<p><strong>{{users.selectedOptions.selected[0]?.value.fullName || "no user selected"}}</strong></p>
