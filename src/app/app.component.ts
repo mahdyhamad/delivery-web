@@ -10,23 +10,6 @@ export class AppComponent implements OnInit {
 
   constructor(private apollo: Apollo) { }
 
-  ngOnInit(): void {
-    let res = this.apollo.mutate({
-      mutation: gql`
-        mutation login($username:String!,$password:String!){
-          tokenAuth(username:$username,password:$password){
-            token
-          }
-        }
-      `,
-      variables: {
-        username: 'mahdyhamad45@gmail.com',
-        password: 'mahdyhamad45'
-      }
-    }).subscribe((data)=>{
-      console.log(data)
-    })
-    console.log(res)
-  }
+  ngOnInit(): void {}
   title = 'delivery-web-app';
 }
