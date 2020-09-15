@@ -1,33 +1,51 @@
 <mat-horizontal-stepper [linear]="isLinear"  #stepper>
-  <mat-step [stepControl]="firstFormGroup" label="Select Pickup">
-    <form [formGroup]="firstFormGroup">
-        <app-list-component></app-list-component>
 
+  // Step1: Select A person to pickup the package
+  // ********************************************
+
+  <mat-step label="Select Pickup">
+        <app-list-component type="users" (selectedPickupUserEmitter)="setPickupUserId($event)"></app-list-component>
       <div class="mt-5">
-        <button mat-flat-button color="accent" matStepperNext>Next</button>
+        <button mat-flat-button color="primary" matStepperNext>Next</button>
       </div>
 
-    </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup" label="Fill Package Details">
-    <form [formGroup]="secondFormGroup">
-      <mat-form-field>
-        <mat-label>Address</mat-label>
-        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-               required>
+
+  // Step2: Add package Details
+  // ********************************************
+
+  <mat-step [stepControl]="packageForm" label="Fill Package Details">
+
+    <form [formGroup]="packageForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Weight</mat-label>
+        <input matInput type="text" formControlName="weight" required>
       </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+      <br/>
+      <mat-form-field appearance="outline">
+        <mat-label>Size</mat-label>
+        <input matInput type="text" formControlName="size" required>
+      </mat-form-field>
+      <div class="">
+        <button mat-flat-button color="accent" class="mr-2" matStepperPrevious>Back</button>
+        <button mat-flat-button color=primary matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+
+  // Step3: Select a shop where the package will stay
+  // ********************************************
+
+  <mat-step label="Select a Shop">
+
+    <app-clients-list (selectItemEvent)="setStoreId($event)"></app-clients-list>
+
+    <div class="mt-5">
+      <button mat-flat-button color="accent" class="mr-2" matStepperPrevious>Back</button>
+      <button mat-flat-button color=primary (click)="onCreateShipment()">Submit</button>
     </div>
   </mat-step>
+
+
+
 </mat-horizontal-stepper>

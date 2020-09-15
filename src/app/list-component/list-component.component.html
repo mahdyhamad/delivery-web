@@ -4,9 +4,12 @@
          class="form-control"
          placeholder="Search...">
 </div>
+
 <mat-selection-list #users [multiple]="false">
-  <mat-list-option *ngFor="let item of dataList; index as i" [value]="item.node" class="shadow-sm m-2">
-    {{item.node.fullName}}
+  <mat-list-option *ngFor="let item of dataList; index as i" [value]="item.node" class="shadow-sm m-2" (click)="selectPickupUser(item.node)">
+<!--    <div mat-card-avatar class="example-header-image"></div>-->
+    <strong>{{item.node.fullName}}</strong>
+    <small style="font-size: small; opacity: 50%">{{item.node.username}}</small>
   </mat-list-option>
 </mat-selection-list>
 <br/>

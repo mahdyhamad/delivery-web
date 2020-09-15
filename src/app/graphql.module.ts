@@ -21,6 +21,7 @@ export function createApollo(httpLink: HttpLink, cookieService: CookieService): 
     },
   }));
 
+
   const link = ApolloLink.from([basic, auth, httpLink.create({ uri })]);
   const cache = new InMemoryCache();
   return {

@@ -1,9 +1,22 @@
-<button (click)="navigateToPickupPage()">
-  Pickup
-</button>
-
-<br />
-
-<button (click)="navigateToDropPage()">
-  Drop
-</button>
+<div class="box">
+  <div class="row">
+    <div class="col-sm-6">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="navigateToPickupPage()" class="shadow-sm">
+        Pickup
+        <i class="fas fa-hands"></i>
+      </button>
+    </div>
+    <div class="col-sm-6 sub-box">
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="navigateToDropPage()" class="shadow-sm">
+        Drop
+        <i class="fas fa-box"></i>
+      </button>
+    </div>
+  </div>
+</div>

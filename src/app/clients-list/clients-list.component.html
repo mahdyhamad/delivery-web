@@ -1,0 +1,16 @@
+<div class="form-group">
+  <input type="email"
+         [value]="searchText"
+         class="form-control"
+         placeholder="Search...">
+</div>
+
+<mat-selection-list #clients [multiple]="false">
+  <mat-list-option *ngFor="let item of dataList; index as i" [value]="item.node" (click)="selectItem(item.node)" class="shadow-sm m-2">
+    <!--    <div mat-card-avatar class="example-header-image"></div>-->
+    <strong>{{item.node.name}}</strong>
+    <small style="font-size: small; opacity: 50%">{{item.node.city}}</small>
+  </mat-list-option>
+</mat-selection-list>
+<br/>
+<p><strong>{{clients.selectedOptions.selected[0]?.value.name || "no Shop selected"}}</strong></p>

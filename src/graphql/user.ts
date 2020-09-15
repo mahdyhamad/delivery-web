@@ -15,9 +15,26 @@ export const ALL_USERS = gql`
       edges{
         node{
           id,
-          fullName
+          fullName,
+          username
         }
       }
     }
   }
+`;
+
+export const ALL_CLIENTS = gql`
+query allClients($first:Int!, $searchText:String!){
+  clients(first:$first, city_Icontains: $searchText){
+    edges{
+      node{
+        id,
+        name,
+        city,
+        detailedAddress,
+      }
+    }
+  }
+}
+
 `;

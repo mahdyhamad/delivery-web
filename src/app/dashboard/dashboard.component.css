@@ -1,0 +1,18 @@
+button{
+  padding: 100px;
+  background-color: #f1f1f1;
+  border: none;
+  font-size: 2em;
+  text-align: center;
+}
+
+.box{
+  text-align: center;
+  margin: 10px;
+  display: block;
+}
+
+.sub-box{
+  margin: auto;
+  text-align: center;
+}

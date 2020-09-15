@@ -1,16 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ALL_USERS} from "../../graphql/user";
 import {Apollo} from "apollo-angular";
 import {Router} from "@angular/router";
-import {transformUsersData} from "../utils/transformation/users";
-
-
-export const queryList = [
-  {
-    type: 'users',
-    queryType: ALL_USERS
-  },
-]
+import {transformUsersData} from "../../utils/transformation/users";
 
 
 @Component({
@@ -20,20 +12,21 @@ export const queryList = [
 })
 
 export class ListComponent implements OnInit {
-  @Input()
-  type: String
-
+  @Input() type: String
+  @Output() selectedPickupUserEmitter = new EventEmitter<object>();
   public dataList: any;
   private response: Object
   public searchText: String = '';
+  private query: any;
 
   constructor(
     private apollo: Apollo,
-    private router: Router,
-    ) {
+    private router: Router
+  ) {
 
     this.apollo.watchQuery({
       query: ALL_USERS,
+      nextFetchPolicy:"no-cache",
       variables:{
         first: 10,
         searchText: this.searchText
@@ -43,7 +36,10 @@ export class ListComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  selectPickupUser(user: object): void{
+    this.selectedPickupUserEmitter.emit(user)
   }
 
 }

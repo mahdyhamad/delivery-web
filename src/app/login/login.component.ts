@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
         const token = data.data['tokenAuth'].token;
         this.cookieService.set('token', 'JWT ' + token);
         localStorage.setItem('token', 'JWT ' + token);
+        console.log("login")
         this.route.navigateByUrl('/dashboard');
       })
     }
