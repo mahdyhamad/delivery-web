@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../Services/auth/auth.service";
 import {Router} from "@angular/router";
+import {UserService} from "../Services/user/user.service";
 
 @Component({
   selector: 'app-nav',
@@ -11,6 +12,7 @@ export class NavComponent implements OnInit {
 
   constructor(
     public auth: AuthService,
+    public userService: UserService,
     private router: Router,
     ) {}
 

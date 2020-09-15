@@ -32,6 +32,7 @@ import {AuthService} from "./Services/auth/auth.service";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatDividerModule} from "@angular/material/divider";
 import {ClientPageComponent} from "./client-page/client-page.component";
+import {UserService} from "./Services/user/user.service";
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import {ClientPageComponent} from "./client-page/client-page.component";
   ],
   providers: [
     CookieService,
-    AuthService
+    AuthService,
+    UserService,
   ],
   bootstrap: [AppComponent]
 })

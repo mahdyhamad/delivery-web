@@ -1,1 +1,13 @@
-<p>client-page works!</p>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar style="font-size: 30px"><i class="fas fa-store-alt"></i></div>
+    <mat-card-title>{{clientData?.client?.name}}</mat-card-title>
+    <mat-card-subtitle>Shop</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://www.riversideplazashepparton.com.au/wp-content/uploads/2015/10/image-store-placeholder-logo.png" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <span><i class="fas fa-map-marker-alt"></i><span class="ml-1">{{clientData?.client?.city}}</span></span>
+    <p>{{clientData?.client?.detailedAddress || 'no address provided'}}</p>
+  </mat-card-content>
+</mat-card>
+

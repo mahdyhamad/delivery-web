@@ -49,13 +49,14 @@ export class PickupPageComponent implements OnInit {
           </div>
         </div>
 
-      <h3><strong>
+      <h3 [routerLink]="'/client/'+item['node'].client.id" class="hover-pointer">
+        <strong>
         <i class="fas fa-store"></i>
         Store:</strong> {{item['node'].client.name}}
       </h3>
       <div class="row">
-        <div class="col-sm"  style="color: dodgerblue">
-          <i class="fas fa-key"></i> click to display the key
+        <div class="col-sm"  style="color: dodgerblue; font-size: large">
+          <i class="fas fa-key"></i> Key: {{item['node'].credentials.pickupCred}}
         </div>
       </div>
       <br/>
@@ -63,7 +64,8 @@ export class PickupPageComponent implements OnInit {
   `,
   styles: [
     '.box{ border-radius: 10px; background-color: white; padding: 20px; margin: 5px}',
-    '.index{ opacity: 20%; font-size: 20px; margin-bottom: 5px}'
+    '.index{ opacity: 20%; font-size: 20px; margin-bottom: 5px}',
+    '.hover-pointer:hover{cursor: pointer;}'
   ]
 })
 export class ShipmentsItem implements OnInit{

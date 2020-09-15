@@ -2,7 +2,10 @@
   <div class="container">
   <span>Drop & Pickup</span>
   <span class="example-spacer" style="margin-left: 1000px"></span>
-
+  <span [hidden]="!auth.isAuthenticated()">
+    Hi
+    {{userService?.user?.firstName}}!
+  </span>
   <button [matMenuTriggerFor]="menu"
           mat-icon-button
           [hidden]="!auth.isAuthenticated()">
